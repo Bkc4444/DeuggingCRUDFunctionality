@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CPW219_AspnetMVC_CRUD_Debugging.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace CPW219_AspnetMVC_CRUD_Debugging.Models
+namespace CPW219_AspnetMVC_CRUD_Debugging.Data
 {
     public class ProductContext : DbContext
     {

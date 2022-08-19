@@ -1,4 +1,4 @@
-using CPW219_AspnetMVC_CRUD_Debugging.Models;
+using CPW219_AspnetMVC_CRUD_Debugging.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,10 +6,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-string dbConnection = builder.Configuration.GetConnectionString("CoreWithBugsDB");
-builder.Services.AddDbContext<ProductContext>(
-        options => options.UseSqlServer(dbConnection)
-    );
+string dbConnection = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ProductContext>(options => options.UseSqlServer(dbConnection));
+
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
